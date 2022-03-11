@@ -1,22 +1,24 @@
 import React from 'react';
-import { Home } from './src/screen/Home';
-import { ThemeProvider } from 'styled-components';
-import theme from './src/styles/theme';
+import AppLoading from 'expo-app-loading';
+import { ThemeProvider, useTheme } from 'styled-components';
 
 import {
   useFonts,
   Inter_400Regular,
   Inter_500Medium
-} from '@expo-google-fonts/inter'
+} from '@expo-google-fonts/inter';
 import {
   Archivo_400Regular,
   Archivo_500Medium,
   Archivo_600SemiBold
-} from '@expo-google-fonts/archivo'
+} from '@expo-google-fonts/archivo';
 
-import AppLoading from 'expo-app-loading';
+import { Home } from './src/screens/Home';
+// import theme from './src/styles/theme';
+
 
 export default function App() {
+  const theme = useTheme();
   const [fontsLoaded] = useFonts({
     Inter_400Regular,
     Inter_500Medium,
@@ -26,10 +28,8 @@ export default function App() {
   });
 
   if (!fontsLoaded) {
-    return (
-      <AppLoading />
-    )
-  };
+    return <AppLoading />
+  }
 
   return (
     <ThemeProvider theme={theme}>
