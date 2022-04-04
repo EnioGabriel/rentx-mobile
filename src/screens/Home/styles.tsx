@@ -1,16 +1,16 @@
 import styled from 'styled-components/native';
-import { useTheme } from 'styled-components';
-
-const theme = useTheme();
 
 export const Container = styled.View`
     flex: 1;
     align-items: center;
     justify-content: center;
     
-    background-color: ${theme.colors.main};
+    background-color: ${({ theme }) => theme.colors.main};
+
 `;
 
-export const Title = styled.Text`
-    font-family: ${theme.fonts.secondary_600};
+export const Header = styled.View`
+    width: 100%;
+    height: 113px;
+    font-family: ${({ theme }) => theme.fonts.secondary_600};
 `
